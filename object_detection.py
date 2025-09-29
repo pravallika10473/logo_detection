@@ -14,7 +14,11 @@ from huggingface_hub import login
 from torchvision.ops import box_convert
 from pytorch_lightning.callbacks import EarlyStopping
 
-login(token="REDACTED")
+# Authenticate to Hugging Face using environment variable token if available
+# Avoid committing personal access tokens to source control
+hf_token = os.getenv("HUGGINGFACE_TOKEN")
+if hf_token:
+    login(token=hf_token)
 
 
 class CocoDetection(torchvision.datasets.CocoDetection):
