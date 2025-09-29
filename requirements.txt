@@ -1,0 +1,12 @@
+transformers>=4.46.0
+datasets
+timm
+albumentations
+requests
+wandb
+torchmetrics
+matplotlib
+pytorch-lightning>=2.0.0
+coco-eval
+easyocr
+google-cloud-vision
