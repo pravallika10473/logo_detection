@@ -135,8 +135,8 @@ device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 print(f"Using device: {device}")
 
 # Initialize model and processor
-processor = AutoImageProcessor.from_pretrained("Pravallika6/detr-finetuned-logo-detection", use_fast=True)
-model = AutoModelForObjectDetection.from_pretrained("Pravallika6/detr-finetuned-logo-detection")
+processor = AutoImageProcessor.from_pretrained("Pravallika6/detr-finetuned-logo-detection_v2", use_fast=True)
+model = AutoModelForObjectDetection.from_pretrained("Pravallika6/detr-finetuned-logo-detection_v2")
 model = model.to(device)
 
 # Set validation directory path

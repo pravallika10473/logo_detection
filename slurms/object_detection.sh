@@ -44,6 +44,22 @@ echo "Current directory: $(pwd)"
 echo "Contents of current directory:"
 ls -l
 
+# Training configuration (with sensible defaults)
+export MAX_EPOCHS=${MAX_EPOCHS:-12}
+export ACCUM_STEPS=${ACCUM_STEPS:-4}
+export NUM_WORKERS=${NUM_WORKERS:-8}
+
+# Auto-resume from last checkpoint if present
+CKPT_DIR="$SCRATCH_DIR/checkpoints"
+mkdir -p "$CKPT_DIR"
+LAST_CKPT="$CKPT_DIR/last.ckpt"
+if [ -f "$LAST_CKPT" ]; then
+  export CKPT_PATH="$LAST_CKPT"
+  echo "Resuming from checkpoint: $CKPT_PATH"
+else
+  echo "No existing checkpoint found. Starting fresh."
+fi
+
 # Check GPU and save info
 nvidia-smi > $LOG_DIR/gpu_info.txt 2>&1
 echo "GPU Info saved to: $LOG_DIR/gpu_info.txt"

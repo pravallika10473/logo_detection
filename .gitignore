@@ -2,3 +2,4 @@ outputs/
 predictions/
 miniconda.sh
 google_credential.json
+.env

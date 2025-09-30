@@ -12,10 +12,10 @@ import torch
 from pytorch_lightning import Trainer
 from huggingface_hub import login
 from torchvision.ops import box_convert
-from pytorch_lightning.callbacks import EarlyStopping
+from pytorch_lightning.callbacks import EarlyStopping, ModelCheckpoint
+from dotenv import load_dotenv
+load_dotenv()
 
-# Authenticate to Hugging Face using environment variable token if available
-# Avoid committing personal access tokens to source control
 hf_token = os.getenv("HUGGINGFACE_TOKEN")
 if hf_token:
     login(token=hf_token)
@@ -61,8 +61,10 @@ def collate_fn(batch):
   batch['labels'] = labels
   return batch
 
-train_dataloader = DataLoader(train_dataset, collate_fn=collate_fn, batch_size=4, shuffle=True)
-val_dataloader = DataLoader(val_dataset, collate_fn=collate_fn, batch_size=4)
+num_workers = int(os.getenv("NUM_WORKERS", 8))
+pin_memory = True
+train_dataloader = DataLoader(train_dataset, collate_fn=collate_fn, batch_size=4, shuffle=True, num_workers=num_workers, pin_memory=pin_memory)
+val_dataloader = DataLoader(val_dataset, collate_fn=collate_fn, batch_size=4, num_workers=num_workers, pin_memory=pin_memory)
 
 batch = next(iter(train_dataloader))
 
@@ -144,7 +146,10 @@ outputs = model(pixel_values=batch['pixel_values'], pixel_mask=batch['pixel_mask
 
 print(outputs.logits.shape)
 
-# Create early stopping callback
+# Create early stopping and checkpoint callbacks
+ckpt_dir = "/scratch/general/vast/u1475870/logo_detection/checkpoints"
+os.makedirs(ckpt_dir, exist_ok=True)
+
 early_stopping = EarlyStopping(
     monitor='validation_loss',
     patience=10,
@@ -153,12 +158,29 @@ early_stopping = EarlyStopping(
     verbose=True
 )
 
-trainer = Trainer(
-    max_epochs=10, 
-    gradient_clip_val=0.1,
-    callbacks=[early_stopping]
+checkpoint_cb = ModelCheckpoint(
+    dirpath=ckpt_dir,
+    save_last=True,
+    save_top_k=1,
+    monitor='validation_loss',
+    mode='min'
 )
 
-trainer.fit(model)
-model.model.push_to_hub("Pravallika6/detr-finetuned-logo-detection")
-processor.push_to_hub("Pravallika6/detr-finetuned-logo-detection")
+accumulate_grad_batches = int(os.getenv("ACCUM_STEPS", 1))
+max_epochs = int(os.getenv("MAX_EPOCHS", 10))
+
+trainer = Trainer(
+    max_epochs=max_epochs, 
+    accelerator="gpu",
+    devices=1,
+    precision="16-mixed",
+    accumulate_grad_batches=accumulate_grad_batches,
+    gradient_clip_val=0.1,
+    callbacks=[early_stopping, checkpoint_cb],
+    default_root_dir=ckpt_dir
+)
+
+ckpt_path = os.getenv("CKPT_PATH") or None
+trainer.fit(model, ckpt_path=ckpt_path)
+model.model.push_to_hub("Pravallika6/detr-finetuned-logo-detection_v2")
+processor.push_to_hub("Pravallika6/detr-finetuned-logo-detection_v2")

@@ -8,8 +8,8 @@ from tqdm import tqdm
 from torchvision.ops import box_convert
 
 # Set up model and processor with use_fast=True
-processor = AutoImageProcessor.from_pretrained("Pravallika6/detr-finetuned-logo-detection", use_fast=True)
-model = AutoModelForObjectDetection.from_pretrained("Pravallika6/detr-finetuned-logo-detection")
+processor = AutoImageProcessor.from_pretrained("Pravallika6/detr-finetuned-logo-detection_v2", use_fast=True)
+model = AutoModelForObjectDetection.from_pretrained("Pravallika6/detr-finetuned-logo-detection_v2")
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 model = model.to(device)
 
