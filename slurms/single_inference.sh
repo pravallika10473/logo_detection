@@ -6,15 +6,15 @@
 #SBATCH --ntasks=1
 #SBATCH --mem=32G
 #SBATCH --gres=gpu:1
-#SBATCH --output=/scratch/general/vast/u1475870/photonode/logs/%j/%j_single_inference.out
-#SBATCH --error=/scratch/general/vast/u1475870/photonode/logs/%j/%j_inference.err
+#SBATCH --output=/scratch/general/vast/u1475870/logo_detection/logs/%j/%j_single_inference.out
+#SBATCH --error=/scratch/general/vast/u1475870/logo_detection/logs/%j/%j_single_inference.err
 #SBATCH --mail-user=pravallikaslurm@gmail.com
 #SBATCH --mail-type=END,FAIL
 #SBATCH --requeue
 #SBATCH --open-mode=append
 
 # Create directories
-SCRATCH_DIR="/scratch/general/vast/u1475870/photonode/"
+SCRATCH_DIR="/scratch/general/vast/u1475870/logo_detection/"
 LOG_DIR="$SCRATCH_DIR/logs/$SLURM_JOB_ID"
 mkdir -p $LOG_DIR
 
@@ -26,15 +26,15 @@ cd $SCRATCH_DIR
 
 # Always copy the latest version of files
 echo "Copying latest version of inference.py..."
-cp -f /uufs/chpc.utah.edu/common/home/$USER/photonode/single_inference.py .
+cp -f /uufs/chpc.utah.edu/common/home/$USER/logo_detection/single_inference.py .
 
 # Print current directory contents
 echo "Contents of current directory:"
 ls -l
 
-# Print model directory contents
-echo "Contents of model directory:"
-ls -l model_output/
+# Optional: set Hugging Face cache on scratch for faster repeated downloads
+export HF_HOME="$SCRATCH_DIR/hf_cache"
+mkdir -p "$HF_HOME"
 
 # Load required modules
 module purge
@@ -42,7 +42,7 @@ module load cuda/12.5.0
 module load cudnn
 
 # Activate virtual environment
-source /uufs/chpc.utah.edu/common/home/$USER/photonode/venv/bin/activate
+source /uufs/chpc.utah.edu/common/home/$USER/logo_detection/venv/bin/activate
 
 # Print environment info
 echo "Python path: $(which python)"
@@ -50,12 +50,7 @@ echo "Python version: $(python --version)"
 echo "Pip packages:"
 pip list
 
-# Check if model exists
-MODEL_DIR="$SCRATCH_DIR/model_output"
-if [ ! -d "$MODEL_DIR" ]; then
-    echo "Error: Model directory not found at $MODEL_DIR"
-    exit 1
-fi
+# No local model directory is required; model will be fetched from Hugging Face Hub
 
 # Check GPU and save info
 nvidia-smi > $LOG_DIR/gpu_info.txt 2>&1
@@ -70,7 +65,7 @@ if [ $? -eq 0 ]; then
     echo "Inference completed successfully"
     
     # Copy results back
-    OUTPUT_DIR="/uufs/chpc.utah.edu/common/home/$USER/photonode/outputs"
+    OUTPUT_DIR="/uufs/chpc.utah.edu/common/home/$USER/logo_detection/outputs"
     mkdir -p $OUTPUT_DIR
     
     # Copy inference results
