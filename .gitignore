@@ -4,3 +4,4 @@ miniconda.sh
 google_credential.json
 .env
 test_images/
+output_final/
