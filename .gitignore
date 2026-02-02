@@ -5,3 +5,7 @@ google_credential.json
 .env
 test_images/
 output_final/
+logos/
+output_clip/
+output_dino_patch/
+output_dino_similarity/
