@@ -1,0 +1,66 @@
+Using a slow image processor as `use_fast` is unset and a slow processor was saved with this model. `use_fast=True` will be the default behavior in v4.52, even if the model was saved with a slow processor. This will result in minor differences in outputs. You'll still be able to use a slow processor with `use_fast=False`.
+Loading DINOv2-base...
+
+Loading references...
+  america_first: 11 refs
+  mountain_america: 12 refs
+  utah_credit_union: 7 refs
+  utah_jazz: 13 refs
+
+Embedding...
+
+========================================================================
+DINOv2 CLS only
+========================================================================
+  america_first          11/11  (100.0%)
+  mountain_america        9/12  ( 75.0%)
+      MISS MOUNTAIN+AMERICA.png.webp                                same=0.661  other(utah_credit_union)=0.693  margin=+0.031
+      MISS images.jpeg                                              same=0.577  other(utah_jazz)=0.602  margin=+0.025
+      MISS mountain_america_center_logo.jpeg                        same=0.582  other(america_first)=0.670  margin=+0.088
+  utah_credit_union       7/7   (100.0%)
+  utah_jazz              10/13  ( 76.9%)
+      MISS images5.jpeg                                             same=0.397  other(america_first)=0.505  margin=+0.108
+      MISS imageso.jpeg                                             same=0.517  other(america_first)=0.611  margin=+0.094
+      MISS utah-jazz_416x416.jpg.webp                               same=0.644  other(america_first)=0.743  margin=+0.099
+  OVERALL                37/43  ( 86.0%)
+
+  intra-class similarity: mean=0.726  min=0.217  max=0.999
+  inter-class similarity: mean=0.490  min=0.215  max=0.777
+  gap (intra-inter):      +0.236
+  OVERLAP: 222/440 intra-class pairs fall in inter-class range
+
+========================================================================
+DINOv2 patch-mean only
+========================================================================
+  america_first          11/11  (100.0%)
+  mountain_america       11/12  ( 91.7%)
+      MISS mountain_america_center_logo.jpeg                        same=0.663  other(america_first)=0.690  margin=+0.027
+  utah_credit_union       7/7   (100.0%)
+  utah_jazz              10/13  ( 76.9%)
+      MISS images5.jpeg                                             same=0.632  other(america_first)=0.681  margin=+0.049
+      MISS imageso.jpeg                                             same=0.642  other(mountain_america)=0.657  margin=+0.015
+      MISS utah-jazz_416x416.jpg.webp                               same=0.768  other(america_first)=0.804  margin=+0.036
+  OVERALL                39/43  ( 90.7%)
+
+  intra-class similarity: mean=0.777  min=0.364  max=1.000
+  inter-class similarity: mean=0.592  min=0.317  max=0.856
+  gap (intra-inter):      +0.184
+  OVERLAP: 270/440 intra-class pairs fall in inter-class range
+
+========================================================================
+DINOv2 0.3*CLS + 0.7*patch
+========================================================================
+  america_first          11/11  (100.0%)
+  mountain_america       11/12  ( 91.7%)
+      MISS mountain_america_center_logo.jpeg                        same=0.641  other(america_first)=0.687  margin=+0.046
+  utah_credit_union       7/7   (100.0%)
+  utah_jazz              10/13  ( 76.9%)
+      MISS images5.jpeg                                             same=0.589  other(america_first)=0.654  margin=+0.065
+      MISS imageso.jpeg                                             same=0.626  other(america_first)=0.655  margin=+0.028
+      MISS utah-jazz_416x416.jpg.webp                               same=0.745  other(america_first)=0.802  margin=+0.057
+  OVERALL                39/43  ( 90.7%)
+
+  intra-class similarity: mean=0.773  min=0.340  max=0.999
+  inter-class similarity: mean=0.574  min=0.290  max=0.842
+  gap (intra-inter):      +0.199
+  OVERLAP: 254/440 intra-class pairs fall in inter-class range

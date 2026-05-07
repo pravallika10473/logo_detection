@@ -1,0 +1,214 @@
+
+==============================================================================
+258s    [GT: mountain_america]    crops: 2
+==============================================================================
+  crop# 1 score=0.97 32x24 -> mountain_america (m+0.03) OK  (BELOW FLOOR)
+        mountain_ameri=0.563       utah_jazz=0.534   america_first=0.473  utah_credit_un=0.352
+  crop# 2 score=0.92 23x24 -> mountain_america (m+0.02) OK  (BELOW FLOOR)
+        mountain_ameri=0.532       utah_jazz=0.513   america_first=0.442  utah_credit_un=0.340
+  IMAGE -> UNCERTAIN  (vote_score=0.00, voters=0)
+
+==============================================================================
+326d6595f2b58c917c57b15d3e7ceb33    [GT: ?]    crops: 3
+==============================================================================
+  crop# 1 score=0.88 69x53 -> utah_jazz (m+0.12) 
+             utah_jazz=0.617  mountain_ameri=0.494   america_first=0.431  utah_credit_un=0.367
+  crop# 2 score=0.71 68x45 -> utah_jazz (m+0.01)   (BELOW FLOOR)
+             utah_jazz=0.561  mountain_ameri=0.553   america_first=0.480  utah_credit_un=0.392
+  crop# 3 score=0.60 40x40 -> utah_jazz (m+0.02)   (BELOW FLOOR)
+             utah_jazz=0.461  mountain_ameri=0.446   america_first=0.387  utah_credit_un=0.294
+  IMAGE -> utah_jazz  (vote_score=0.62, voters=1)
+
+==============================================================================
+348s    [GT: ?]    crops: 2
+==============================================================================
+  crop# 1 score=0.95 51x32 -> mountain_america (m+0.05)   (BELOW FLOOR)
+        mountain_ameri=0.599       utah_jazz=0.545   america_first=0.501  utah_credit_un=0.359
+  crop# 2 score=0.37 160x96 -> mountain_america (m+0.02)   (BELOW FLOOR)
+        mountain_ameri=0.523       utah_jazz=0.507   america_first=0.446  utah_credit_un=0.328
+  IMAGE -> UNCERTAIN  (vote_score=0.00, voters=0)
+
+==============================================================================
+3UC3DJJBW5GCFKBJYTOFBK62RA.jpg    [GT: ?]    crops: 5
+==============================================================================
+  crop# 1 score=0.91 61x62 -> utah_jazz (m+0.12) 
+             utah_jazz=0.606  mountain_ameri=0.481  utah_credit_un=0.450   america_first=0.426
+  crop# 2 score=0.76 186x68 -> america_first (m+0.06) 
+         america_first=0.689  mountain_ameri=0.632       utah_jazz=0.509  utah_credit_un=0.397
+  crop# 3 score=0.72 61x40 -> utah_jazz (m+0.10) 
+             utah_jazz=0.681  mountain_ameri=0.583   america_first=0.534  utah_credit_un=0.406
+  crop# 4 score=0.58 89x62 -> mountain_america (m+0.01)   (BELOW FLOOR)
+        mountain_ameri=0.568       utah_jazz=0.558   america_first=0.529  utah_credit_un=0.389
+  crop# 5 score=0.38 40x57 -> utah_jazz (m+0.08) 
+             utah_jazz=0.643  mountain_ameri=0.565   america_first=0.493  utah_credit_un=0.393
+  IMAGE -> utah_jazz  (vote_score=1.93, voters=4)
+
+==============================================================================
+Nevada-Reno-123    [GT: mountain_america]    crops: 2
+==============================================================================
+  crop# 1 score=0.99 33x30 -> mountain_america (m+0.08) OK
+        mountain_ameri=0.632       utah_jazz=0.548   america_first=0.538  utah_credit_un=0.393
+  crop# 2 score=0.60 110x35 -> mountain_america (m+0.11) OK  (BELOW FLOOR)
+        mountain_ameri=0.589   america_first=0.482       utah_jazz=0.465  utah_credit_un=0.356
+  IMAGE -> mountain_america  (vote_score=0.63, voters=1)
+
+==============================================================================
+St.-George-IMG_7866-scaled    [GT: ?]    crops: 4
+==============================================================================
+  crop# 1 score=0.94 172x108 -> mountain_america (m+0.06)   (BELOW FLOOR)
+        mountain_ameri=0.585   america_first=0.523       utah_jazz=0.497  utah_credit_un=0.488
+  crop# 2 score=0.61 83x51 -> mountain_america (m+0.07) 
+        mountain_ameri=0.644       utah_jazz=0.576   america_first=0.517  utah_credit_un=0.428
+  crop# 3 score=0.48 194x358 -> america_first (m+0.03)   (BELOW FLOOR)
+         america_first=0.586  mountain_ameri=0.552  utah_credit_un=0.510       utah_jazz=0.385
+  crop# 4 score=0.44 128x90 -> mountain_america (m+0.07)   (BELOW FLOOR)
+        mountain_ameri=0.595       utah_jazz=0.525   america_first=0.498  utah_credit_un=0.422
+  IMAGE -> mountain_america  (vote_score=0.64, voters=1)
+
+==============================================================================
+U5A4700.jpg    [GT: ?]    crops: 3
+==============================================================================
+  crop# 1 score=0.93 283x140 -> utah_jazz (m+0.09) 
+             utah_jazz=0.708  utah_credit_un=0.622  mountain_ameri=0.575   america_first=0.474
+  crop# 2 score=0.83 138x94 -> mountain_america (m+0.06)   (BELOW FLOOR)
+        mountain_ameri=0.593       utah_jazz=0.533   america_first=0.484  utah_credit_un=0.391
+  crop# 3 score=0.77 99x92 -> utah_jazz (m+0.16) 
+             utah_jazz=0.673  mountain_ameri=0.514   america_first=0.460  utah_credit_un=0.393
+  IMAGE -> utah_jazz  (vote_score=1.38, voters=2)
+
+==============================================================================
+Untitled-1_02.jpg    [GT: ?]    crops: 3
+==============================================================================
+  crop# 1 score=0.99 113x99 -> mountain_america (m+0.07) 
+        mountain_ameri=0.660   america_first=0.586       utah_jazz=0.525  utah_credit_un=0.403
+  crop# 2 score=0.49 158x105 -> utah_jazz (m+0.03)   (BELOW FLOOR)
+             utah_jazz=0.494  mountain_ameri=0.460   america_first=0.416  utah_credit_un=0.322
+  crop# 3 score=0.39 167x98 -> mountain_america (m+0.06) 
+        mountain_ameri=0.649   america_first=0.584       utah_jazz=0.559  utah_credit_un=0.421
+  IMAGE -> mountain_america  (vote_score=1.31, voters=2)
+
+==============================================================================
+af    [GT: america_first]    crops: 3
+==============================================================================
+  crop# 1 score=0.93 35x22 -> america_first (m+0.04) OK
+         america_first=0.664  mountain_ameri=0.627       utah_jazz=0.532  utah_credit_un=0.455
+  crop# 2 score=0.88 108x38 -> mountain_america (m+0.00) MISS (gt=america_first)  (BELOW FLOOR)
+        mountain_ameri=0.532       utah_jazz=0.531   america_first=0.469  utah_credit_un=0.364
+  crop# 3 score=0.88 49x27 -> america_first (m+0.05) OK
+         america_first=0.698  mountain_ameri=0.650       utah_jazz=0.516  utah_credit_un=0.434
+  IMAGE -> america_first  (vote_score=1.36, voters=2)
+
+==============================================================================
+americafirstcujpg*1200xx4032-2265-0-380    [GT: america_first]    crops: 3
+==============================================================================
+  crop# 1 score=0.88 49x97 -> mountain_america (m+0.07) MISS (gt=america_first)  (BELOW FLOOR)
+        mountain_ameri=0.582       utah_jazz=0.513   america_first=0.499  utah_credit_un=0.372
+  crop# 2 score=0.88 193x72 -> america_first (m+0.10) OK
+         america_first=0.720  mountain_ameri=0.618       utah_jazz=0.487  utah_credit_un=0.398
+  crop# 3 score=0.68 100x45 -> mountain_america (m+0.01) MISS (gt=america_first)  (BELOW FLOOR)
+        mountain_ameri=0.560   america_first=0.550       utah_jazz=0.538  utah_credit_un=0.443
+  IMAGE -> america_first  (vote_score=0.72, voters=1)
+
+==============================================================================
+b8kbravu0sg4dssqa5ri    [GT: ?]    crops: 7
+==============================================================================
+  crop# 1 score=0.97 174x66 -> america_first (m+0.03) 
+         america_first=0.697  mountain_ameri=0.666       utah_jazz=0.556  utah_credit_un=0.427
+  crop# 2 score=0.96 85x78 -> utah_jazz (m+0.01)   (BELOW FLOOR)
+             utah_jazz=0.500  mountain_ameri=0.487   america_first=0.456  utah_credit_un=0.317
+  crop# 3 score=0.89 71x80 -> utah_jazz (m+0.02)   (BELOW FLOOR)
+             utah_jazz=0.501  mountain_ameri=0.483   america_first=0.443  utah_credit_un=0.308
+  crop# 4 score=0.52 246x69 -> america_first (m+0.05) 
+         america_first=0.737  mountain_ameri=0.692       utah_jazz=0.501  utah_credit_un=0.464
+  crop# 5 score=0.50 320x172 -> america_first (m+0.09) 
+         america_first=0.744  mountain_ameri=0.653  utah_credit_un=0.580       utah_jazz=0.457
+  crop# 6 score=0.39 83x128 -> america_first (m+0.01)   (BELOW FLOOR)
+         america_first=0.500  mountain_ameri=0.490  utah_credit_un=0.471       utah_jazz=0.398
+  crop# 7 score=0.37 105x147 -> mountain_america (m+0.01)   (BELOW FLOOR)
+        mountain_ameri=0.479   america_first=0.468  utah_credit_un=0.451       utah_jazz=0.349
+  IMAGE -> america_first  (vote_score=2.18, voters=3)
+
+==============================================================================
+bps1    [GT: america_first]    crops: 6
+==============================================================================
+  crop# 1 score=0.91 49x60 -> mountain_america (m+0.03) MISS (gt=america_first)
+        mountain_ameri=0.613       utah_jazz=0.584   america_first=0.528  utah_credit_un=0.404
+  crop# 2 score=0.90 46x47 -> mountain_america (m+0.05) MISS (gt=america_first)
+        mountain_ameri=0.621       utah_jazz=0.576   america_first=0.575  utah_credit_un=0.417
+  crop# 3 score=0.63 106x86 -> mountain_america (m+0.01) MISS (gt=america_first)  (BELOW FLOOR)
+        mountain_ameri=0.580       utah_jazz=0.565   america_first=0.528  utah_credit_un=0.410
+  crop# 4 score=0.61 112x94 -> mountain_america (m+0.01) MISS (gt=america_first)  (BELOW FLOOR)
+        mountain_ameri=0.526   america_first=0.516       utah_jazz=0.469  utah_credit_un=0.370
+  crop# 5 score=0.43 517x290 -> america_first (m+0.05) OK  (BELOW FLOOR)
+         america_first=0.365  mountain_ameri=0.318  utah_credit_un=0.243       utah_jazz=0.202
+  crop# 6 score=0.43 58x39 -> mountain_america (m+0.05) MISS (gt=america_first)
+        mountain_ameri=0.637       utah_jazz=0.591   america_first=0.549  utah_credit_un=0.422
+  IMAGE -> mountain_america  (vote_score=1.87, voters=3)
+
+==============================================================================
+first    [GT: america_first]    crops: 1
+==============================================================================
+  crop# 1 score=0.46 71x69 -> america_first (m+0.08) OK
+         america_first=0.696  mountain_ameri=0.618       utah_jazz=0.462  utah_credit_un=0.451
+  IMAGE -> america_first  (vote_score=0.70, voters=1)
+
+==============================================================================
+images    [GT: america_first]    crops: 1
+==============================================================================
+  crop# 1 score=0.38 187x165 -> utah_jazz (m+0.09) MISS (gt=america_first)  (BELOW FLOOR)
+             utah_jazz=0.474  mountain_ameri=0.388   america_first=0.372  utah_credit_un=0.297
+  IMAGE -> UNCERTAIN  (vote_score=0.00, voters=0)
+
+==============================================================================
+images_jazz    [GT: utah_jazz]    crops: 0
+==============================================================================
+
+==============================================================================
+imagesl    [GT: utah_jazz]    crops: 1
+==============================================================================
+  crop# 1 score=0.93 62x26 -> mountain_america (m+0.01) MISS (gt=utah_jazz)  (BELOW FLOOR)
+        mountain_ameri=0.535       utah_jazz=0.522   america_first=0.469  utah_credit_un=0.347
+  IMAGE -> UNCERTAIN  (vote_score=0.00, voters=0)
+
+==============================================================================
+maxresdefault    [GT: mountain_america]    crops: 6
+==============================================================================
+  crop# 1 score=0.93 109x73 -> mountain_america (m+0.09) OK
+        mountain_ameri=0.664       utah_jazz=0.579   america_first=0.566  utah_credit_un=0.389
+  crop# 2 score=0.85 44x55 -> mountain_america (m+0.07) OK  (BELOW FLOOR)
+        mountain_ameri=0.566       utah_jazz=0.495   america_first=0.441  utah_credit_un=0.357
+  crop# 3 score=0.65 102x33 -> mountain_america (m+0.13) OK
+        mountain_ameri=0.669   america_first=0.542       utah_jazz=0.531  utah_credit_un=0.390
+  crop# 4 score=0.55 54x51 -> mountain_america (m+0.05) OK
+        mountain_ameri=0.607   america_first=0.558       utah_jazz=0.545  utah_credit_un=0.374
+  crop# 5 score=0.44 174x106 -> mountain_america (m+0.12) OK
+        mountain_ameri=0.786   america_first=0.662  utah_credit_un=0.516       utah_jazz=0.498
+  crop# 6 score=0.37 129x87 -> mountain_america (m+0.10) OK
+        mountain_ameri=0.684       utah_jazz=0.588   america_first=0.577  utah_credit_un=0.404
+  IMAGE -> mountain_america  (vote_score=3.41, voters=5)
+
+==============================================================================
+spanish-fork-branch    [GT: america_first]    crops: 3
+==============================================================================
+  crop# 1 score=0.97 141x104 -> america_first (m+0.08) OK
+         america_first=0.878  mountain_ameri=0.801  utah_credit_un=0.580       utah_jazz=0.556
+  crop# 2 score=0.95 79x82 -> america_first (m+0.04) OK
+         america_first=0.737  mountain_ameri=0.701       utah_jazz=0.527  utah_credit_un=0.445
+  crop# 3 score=0.37 110x90 -> america_first (m+0.08) OK
+         america_first=0.880  mountain_ameri=0.805  utah_credit_un=0.580       utah_jazz=0.556
+  IMAGE -> america_first  (vote_score=2.49, voters=3)
+
+==============================================================================
+STAGE 3 (CLIP) SUMMARY  floor=0.6
+==============================================================================
+  correct=6  wrong=1  uncertain=4  no_gt=6  no_crops=1  -> 86% on 7 decisive w/ GT
+
+Confusion (CLIP, GT-known images only):
+  america_first          -> UNCERTAIN               (x1)
+  america_first          -> america_first           (x4)
+  america_first          -> mountain_america        (x1)
+  mountain_america       -> UNCERTAIN               (x1)
+  mountain_america       -> mountain_america        (x2)
+  utah_jazz              -> UNCERTAIN               (x1)
+
+Annotated images: stage3_annotated_clip_ensemble/

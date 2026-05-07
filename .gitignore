@@ -9,3 +9,20 @@ logos/
 output_clip/
 output_dino_patch/
 output_dino_similarity/
+barnfield_reference_images/
+vertu_reference_images/
+burnley_test_images/
+debug_crops/
+clean_test/
+
+# Generated stage outputs (regenerate from tests/stage*.py scripts)
+tests/results/stage2_filtered/
+tests/results/stage2_filtered_gdino/
+tests/results/stage2_filtered_ensemble/
+tests/results/stage3_annotated/
+tests/results/stage3_annotated_clip/
+tests/results/stage3_annotated_gdino/
+tests/results/stage3_annotated_clip_gdino/
+tests/results/stage3_annotated_ensemble/
+tests/results/stage3_annotated_clip_ensemble/
+tests/results/stage3_annotated_dual_ensemble/

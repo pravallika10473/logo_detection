@@ -1,0 +1,99 @@
+
+==============================================================================
+TEST IMAGES (clean_test/test_images)  (18 images)
+==============================================================================
+name                                           fmt   mode  WxH             kb  sharp   bri   con  flags
+--------------------------------------------------------------------------------------------------------------
+258s.jpg                                       JPEG  RGB   258x258       15.1 1081.2 106.9  43.6  
+326d6595f2b58c917c57b15d3e7ceb33.webp          WEBP  RGB   640x427       28.1  518.9  71.3  58.5  
+348s.jpg                                       JPEG  RGB   348x348       20.1  140.4 106.1  81.7  
+3UC3DJJBW5GCFKBJYTOFBK62RA.jpg.avif            AVIF  RGB   1024x703      37.1  291.6 113.6  42.8  
+Nevada-Reno-123.jpg                            JPEG  RGB   456x306       52.4 4340.7 130.9  65.3  
+St.-George-IMG_7866-scaled.jpg                 JPEG  RGB   2560x1920    583.6 1050.4 125.6  58.3  
+U5A4700.jpg.webp                               WEBP  RGB   2290x1410    418.8  135.6  26.6  39.4  
+Untitled-1_02.jpg.avif                         AVIF  RGB   960x1080      51.8  550.9 194.6  63.5  
+af.jpeg                                        JPEG  RGB   201x251       10.4 3994.7  65.5  68.3  
+americafirstcujpg*1200xx4032-2265-0-380.jpg    JPEG  RGB   1200x674     167.1 3467.7 121.8  66.0  
+b8kbravu0sg4dssqa5ri.jpg                       JPEG  RGB   1280x720     120.1  639.4 185.8  74.1  
+bps1.png                                       PNG   RGBA  945x945     1462.1  812.1 112.8  67.1  ALPHA
+first.jpeg                                     JPEG  RGB   259x194       10.6 2820.1  93.1  32.5  TINY(194px)
+images.jpeg                                    JPEG  RGB   300x168        7.0 1414.3 130.4  39.0  TINY(168px)
+images_jazz.jpeg                               JPEG  RGB   300x168        6.9 1015.7  45.2  47.0  TINY(168px)
+imagesl.jpeg                                   JPEG  RGB   201x251       10.4 2583.9  49.0  57.0  
+maxresdefault.jpg                              JPEG  RGB   1280x720     162.0 1257.6 111.9  68.3  
+spanish-fork-branch.png                        PNG   RGBA  1200x600    1076.1 1624.0 118.6  63.1  ALPHA
+
+==============================================================================
+REFERENCE: america_first  (5 images)
+==============================================================================
+name                                           fmt   mode  WxH             kb  sharp   bri   con  flags
+--------------------------------------------------------------------------------------------------------------
+America-First-Credit-Union.jpeg                JPEG  RGB   500x375       14.9  886.1  60.6  54.6  
+America_First_Credit_Union_Logo.jpg            JPEG  RGB   920x300       64.2 1567.6 196.3  77.2  
+afcu_logo.jpg                                  JPEG  RGB   640x445       14.6  318.3 235.8  54.7  
+image.webp                                     WEBP  RGB   1024x1024     20.0  200.9 246.4  35.2  
+images.jpeg                                    JPEG  RGB   319x158       11.1 2737.8  88.2  65.1  TINY(158px)
+
+==============================================================================
+REFERENCE: mountain_america  (6 images)
+==============================================================================
+name                                           fmt   mode  WxH             kb  sharp   bri   con  flags
+--------------------------------------------------------------------------------------------------------------
+MOUNTAIN+AMERICA.png.webp                      WEBP  RGBA  2500x626      87.9 4107.2  99.0 113.2  ALPHA
+Mountian_America_Credit_Union_Logo.jpg         JPEG  RGB   497x255       26.1 8131.2 219.5  77.6  
+images.jpeg                                    JPEG  RGB   225x225        7.9 1963.5 171.8  88.4  
+images.png                                     PNG   P     225x225        3.7 4525.4  49.9  46.2  PALETTE
+mountain-america-credit-union-logo-black.png.w WEBP  RGBA  500x126       17.1 9399.2  45.4  80.3  TINY(126px) ALPHA
+mountain_america_center_logo.jpeg              JPEG  RGB   200x200        4.9 2382.9 242.0  47.8  
+
+==============================================================================
+REFERENCE: utah_credit_union  (4 images)
+==============================================================================
+name                                           fmt   mode  WxH             kb  sharp   bri   con  flags
+--------------------------------------------------------------------------------------------------------------
+22976v.jpg.webp                                WEBP  RGB   640x360        8.0 1365.2 225.5  73.6  
+UFC_Logo_Horizontal-Boxed_Orange_RGB.jpg       JPEG  RGB   1024x512      42.8   65.9 246.1  28.7  BLUR(66)
+images.png                                     PNG   P     346x145        2.1  872.6   6.8  30.1  TINY(145px) PALETTE
+unnamed.png                                    PNG   RGB   512x512       14.0  152.2 157.6  21.9  FLAT(22)
+
+==============================================================================
+REFERENCE: utah_jazz  (7 images)
+==============================================================================
+name                                           fmt   mode  WxH             kb  sharp   bri   con  flags
+--------------------------------------------------------------------------------------------------------------
+1.png                                          PNG   P     225x225        5.4 1072.4 213.1  74.9  PALETTE
+Unknown.png                                    PNG   P     272x185        3.1 1386.8 191.4  97.1  TINY(185px) PALETTE
+images.png                                     PNG   P     225x225        2.0 1768.3  38.3  83.0  PALETTE
+images5.jpeg                                   JPEG  RGB   225x225        7.9 2557.9  60.9  21.0  FLAT(21)
+imageso.jpeg                                   JPEG  RGB   294x171        5.8 2226.8 186.7  45.3  TINY(171px)
+utah-jazz-jersey-2023-23434062023-thumb.png    PNG   RGBA  200x133        5.2 3553.8 190.6 107.4  TINY(133px) ALPHA
+utah-jazz_416x416.jpg.webp                     WEBP  RGB   416x416        8.4 1384.9 211.9  84.8  
+
+==============================================================================
+SUMMARY
+==============================================================================
+
+[test] 18 images  |  flagged: 5  |  errors: 0
+   sharpness: min=136  median=1081  max=4341
+   contrast : min=32  median=63  max=82
+   short side: min=168  median=600  max=1920
+
+[ref:america_first] 5 images  |  flagged: 1  |  errors: 0
+   sharpness: min=201  median=886  max=2738
+   contrast : min=35  median=55  max=77
+   short side: min=158  median=375  max=1024
+
+[ref:mountain_america] 6 images  |  flagged: 3  |  errors: 0
+   sharpness: min=1964  median=4525  max=9399
+   contrast : min=46  median=80  max=113
+   short side: min=126  median=225  max=626
+
+[ref:utah_credit_union] 4 images  |  flagged: 3  |  errors: 0
+   sharpness: min=66  median=873  max=1365
+   contrast : min=22  median=30  max=74
+   short side: min=145  median=512  max=512
+
+[ref:utah_jazz] 7 images  |  flagged: 6  |  errors: 0
+   sharpness: min=1072  median=1768  max=3554
+   contrast : min=21  median=83  max=107
+   short side: min=133  median=225  max=416
