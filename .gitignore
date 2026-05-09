@@ -15,6 +15,13 @@ burnley_test_images/
 debug_crops/
 clean_test/
 
+# Per-image embedding cache (recomputed on demand; keyed by file hash)
+.embedding_cache/
+
+# Inference outputs
+inference_output/
+inference_smoke_test/
+
 # Generated stage outputs (regenerate from tests/stage*.py scripts)
 tests/results/stage2_filtered/
 tests/results/stage2_filtered_gdino/
