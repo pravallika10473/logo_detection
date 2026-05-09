@@ -147,6 +147,8 @@ def get_font(size=18):
 
 def annotate(orig_path, boxes_meta, per_crop_ranked, image_pred, gt,
              font_box, font_title):
+    """Final-only view: only draw bboxes whose top brand matches image_pred
+    and whose sim is above SIM_FLOOR. UNCERTAIN images get title-only."""
     img = Image.open(orig_path).convert("RGB")
     draw = ImageDraw.Draw(img)
 
@@ -159,16 +161,17 @@ def annotate(orig_path, boxes_meta, per_crop_ranked, image_pred, gt,
     draw.rectangle([0, 0, tw + 10, 28], fill="black")
     draw.text((5, 4), title, fill="white", font=font_title)
 
+    if image_pred == "UNCERTAIN":
+        return img
+
     for box, ranked in zip(boxes_meta, per_crop_ranked):
         top_brand, top_sim = ranked[0]
-        margin = top_sim - ranked[1][1]
-        below_floor = top_sim < SIM_FLOOR
+        if top_brand != image_pred or top_sim < SIM_FLOOR:
+            continue
         color = BRAND_COLORS.get(top_brand, "white")
         x0, y0, x1, y1 = box["x0"], box["y0"], box["x1"], box["y1"]
-        draw.rectangle([x0, y0, x1, y1], outline=color,
-                       width=4 if not below_floor else 2)
-        prefix = "(weak) " if below_floor else ""
-        label = f"{prefix}{top_brand} {top_sim:.2f} (Δ{margin:+.2f})"
+        draw.rectangle([x0, y0, x1, y1], outline=color, width=4)
+        label = f"{top_brand} {top_sim:.2f}"
         tw = draw.textlength(label, font=font_box)
         ly = max(30, y0 - 20)
         draw.rectangle([x0, ly, x0 + tw + 6, ly + 20], fill=color)

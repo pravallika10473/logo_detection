@@ -182,4 +182,4 @@ Confusion (CLIP, GT-known images only):
   mountain_america       -> mountain_america        (x2)
   utah_jazz              -> UNCERTAIN               (x1)
 
-Annotated images: stage3_annotated_clip/
+Annotated images: tests/results/stage3_annotated_clip/

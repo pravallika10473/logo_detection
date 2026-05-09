@@ -178,6 +178,10 @@ def get_font(size=18):
 
 
 def annotate(orig_path, boxes_meta, per_crop, image_pred, gt, font_box, font_title):
+    """Final view: only draw bboxes that voted for the winning brand.
+    A box votes if either DINOv2 or CLIP top-brand sim is above its floor
+    AND that top brand matches the image-level prediction.
+    UNCERTAIN images get title-only."""
     img = Image.open(orig_path).convert("RGB")
     draw = ImageDraw.Draw(img)
 
@@ -190,20 +194,32 @@ def annotate(orig_path, boxes_meta, per_crop, image_pred, gt, font_box, font_tit
     draw.rectangle([0, 0, tw + 10, 28], fill="black")
     draw.text((5, 4), title, fill="white", font=font_title)
 
+    if image_pred == "UNCERTAIN":
+        return img
+
     for box, crop in zip(boxes_meta, per_crop):
-        ranked = crop["combined_ranked"]
-        top, top_sim = ranked[0]
-        margin = top_sim - ranked[1][1]
-        below = top_sim < SIM_FLOOR
-        agree = crop["agree"]
+        d_top, c_top = crop["dino_top"], crop["clip_top"]
+        d_sim = crop["dino_sims"][d_top]
+        c_sim = crop["clip_sims"][c_top]
+        d_voted_for_winner = d_top == image_pred and d_sim >= DINO_FLOOR
+        c_voted_for_winner = c_top == image_pred and c_sim >= CLIP_FLOOR
+        if not (d_voted_for_winner or c_voted_for_winner):
+            continue
+
+        # Use the stronger of the two contributing sims for the label
+        winning_sims = []
+        if d_voted_for_winner:
+            winning_sims.append(("DINO", d_sim))
+        if c_voted_for_winner:
+            winning_sims.append(("CLIP", c_sim))
+        src_str = "+".join(s[0] for s in winning_sims)
+        top_sim = max(s[1] for s in winning_sims)
+        top = image_pred
 
         color = BRAND_COLORS.get(top, "white")
         x0, y0, x1, y1 = box["x0"], box["y0"], box["x1"], box["y1"]
-        draw.rectangle([x0, y0, x1, y1], outline=color,
-                       width=4 if not below else 2)
-        prefix = "(weak) " if below else ""
-        agree_tag = "" if agree else " [disagree]"
-        label = f"{prefix}{top} {top_sim:.2f} (Δ{margin:+.2f}){agree_tag}"
+        draw.rectangle([x0, y0, x1, y1], outline=color, width=4)
+        label = f"{top} {top_sim:.2f} [{src_str}]"
         tw = draw.textlength(label, font=font_box)
         ly = max(30, y0 - 20)
         draw.rectangle([x0, ly, x0 + tw + 6, ly + 20], fill=color)

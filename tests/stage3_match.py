@@ -159,11 +159,12 @@ def get_font(size=18):
 
 
 def annotate(orig_path, boxes_meta, per_crop, image_pred, gt, key, font_box, font_title):
-    """Draw each kept bbox in brand color, label with predicted brand + sim."""
+    """Final-only view: only draw bboxes whose top brand matches image_pred
+    and whose sim is above SIM_FLOOR (the ones that voted for the winner).
+    UNCERTAIN images get title-only."""
     img = Image.open(orig_path).convert("RGB")
     draw = ImageDraw.Draw(img)
 
-    # title bar at top
     title = f"PRED: {image_pred}"
     if gt:
         title += f"   GT: {gt}   {'OK' if image_pred == gt else 'MISS'}"
@@ -174,25 +175,19 @@ def annotate(orig_path, boxes_meta, per_crop, image_pred, gt, key, font_box, fon
     draw.rectangle([0, 0, tw + 10, th], fill="black")
     draw.text((5, 4), title, fill="white", font=font_title)
 
-    # per-bbox annotations
+    if image_pred == "UNCERTAIN":
+        return img
+
     for box, crop_pred in zip(boxes_meta, per_crop):
         ranked = crop_pred[key]["ranked"]
         top_brand, top_sim = ranked[0]
-        margin = top_sim - ranked[1][1]
-        below_floor = top_sim < SIM_FLOOR
+        if top_brand != image_pred or top_sim < SIM_FLOOR:
+            continue
 
         color = BRAND_COLORS.get(top_brand, "white")
-        # dim if below voting floor
-        if below_floor:
-            label_prefix = "(weak) "
-        else:
-            label_prefix = ""
-
         x0, y0, x1, y1 = box["x0"], box["y0"], box["x1"], box["y1"]
-        width = 4 if not below_floor else 2
-        draw.rectangle([x0, y0, x1, y1], outline=color, width=width)
-
-        label = f"{label_prefix}{top_brand} {top_sim:.2f} (Δ{margin:+.2f})"
+        draw.rectangle([x0, y0, x1, y1], outline=color, width=4)
+        label = f"{top_brand} {top_sim:.2f}"
         tw = draw.textlength(label, font=font_box)
         lh = 20
         ly = max(th + 2, y0 - lh)
